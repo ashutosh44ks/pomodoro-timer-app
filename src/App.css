@@ -1,38 +1,117 @@
-.App {
-  text-align: center;
+header {
+  background-color: #ee5d4f;
+  color: white;
+  /* border-bottom: solid 1px white; */
+}
+header .logo {
+  height: 2rem;
+  width: 2rem;
+  fill: white;
+  margin-right: 0.25rem;
+}
+header h3 {
+  font-size: 2rem;
+  font-weight: 100;
+  display: flex;
+  align-items: center;
+}
+header img {
+  border-radius: 100%;
+  height: 2rem;
+  width: 2rem;
+}
+header button {
+  border: solid 1px white;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  background-color: transparent;
+  transition: all 0.2s ease-in-out;
+  font-weight: 500;
+}
+header button:hover {
+  background-color: white;
+  color: rgb(207 83 83);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+main {
+  height: calc(100vh - 5rem);
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+.card {
+  border: solid 0.1rem rgb(207 83 83);
+  border-radius: 0.5rem;
+  margin: 1rem;
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+}
+.card:hover {
+  background-color: rgb(207, 83, 83, 0.1);
+}
+.card .body {
+  font-size: 4rem;
+  font-weight: 500;
+  padding: 1rem;
+  padding-bottom: 0;
+}
+.card .footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.card .footer button {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+.card .footer button:hover {
+    background-color: rgb(207, 83, 83, 0.1);
+}
+
+.auth-page {
+  background-color: #ee5d4f;
+  height: 100vh;
+  width: 100%;
+}
+.auth-page header {
+  border-bottom:  solid 0.05rem white;
+}
+.auth-page header h3 {
+  letter-spacing: 0.15rem;
+}
+.auth-page header .logo {
+  margin-right: 0;
+}
+.auth-page h1 {
+  font-size: 4rem;
   color: white;
+  font-weight: 400;
 }
-
-.App-link {
-  color: #61dafb;
+.auth-page h4 {
+  font-size: 2rem;
+  color: white;
+  font-weight: 300;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.auth-page button {
+  background-color: white;
+  color: #ee5d4f;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease-in-out;
+}
+.auth-page button:hover {
+  scale: 1.05;
 }
