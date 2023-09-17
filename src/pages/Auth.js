@@ -36,7 +36,15 @@ const SignUp = () => {
   }
 
   if (sessionStorage.getItem("signInWithRedirect") === "true") {
-    return <div>Redirecting...</div>;
+    return (
+      <div className="auth-page">
+        <Header />
+        <main className="p-16 flex-row gap-4">
+          <div className="loader" />
+          <div className="redirect">Redirecting...</div>
+        </main>
+      </div>
+    );
   }
 
   return (
