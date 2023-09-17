@@ -1,3 +1,17 @@
+# Pomodoro Timer App
+
+## About the project -
+
+Google Authentication is done by Firebase.
+There is a stopwatch for 25-minute focus rounds, followed by a break and again focus.
+App supports short (5 minutes) and long breaks (15 minutes).
+A long break is automatically scheduled after 5 focus rounds.
+
+## Tech Stack Used -
+React JS + Tailwind CSS + Firebase
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
