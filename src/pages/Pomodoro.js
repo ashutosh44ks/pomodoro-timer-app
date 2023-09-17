@@ -1,12 +1,9 @@
 import { useState, useEffect, useRef } from "react";
-import Input from "../components/ui/Input";
 import beepBreakSound from "../components/assets/beepStartBreak.wav";
 import beepFocusSound from "../components/assets/beepStartFocus.wav";
 import Header from "../components/ui/Header";
 
-const Pomodoro = () => {
-  // Pomodoro
-
+const Pomodoro = ({ user, setUser }) => {
   // set initial time to 25 minutes (25 * 60)
   const [time, setTime] = useState(25 * 60);
   const [activeClock, setActiveClock] = useState(false);
@@ -59,37 +56,37 @@ const Pomodoro = () => {
   };
 
   const [task, setTask] = useState("");
-
+  const getName = (user) => {
+    return user?.displayName.split(" ")[0];
+  };
   return (
-    <>
-      <Header />
-      <div>
-        <main>
-          {count}
-          <div className="card">
-            <h1 className="body">
-              <span>{minutes}</span>
-              <span>:</span>
-              <span>{seconds}</span>
-            </h1>
-            <div className="footer">
-              <button onClick={handleAction}>
-                {activeClock ? "Stop" : "Start"}
-              </button>
-              <button onClick={handleReset}>Reset</button>
-            </div>
+    <div className="pomodoro-page">
+      <Header user={user} setUser={setUser} />
+      <main>
+        <div className="mb-8">
+          <h4 className="greet">Hi {getName(user)}</h4>
+          <input
+            type="text"
+            id="task"
+            value={task}
+            placeholder="What are you working on?"
+            onChange={(e) => setTask(e.target.value)}
+          />
+        </div>
+        <div className="card">
+          <h1 className="body">
+            <span>{minutes}</span>
+            <span>:</span>
+            <span>{seconds}</span>
+          </h1>
+          <div className="footer">
+            <button onClick={handleAction}>
+              {activeClock ? "Stop" : "Start"}
+            </button>
+            <button onClick={handleReset}>Reset</button>
           </div>
-          <div className="my-4">
-            <Input
-              label="What're you working on?"
-              type="text"
-              val={task}
-              setVal={setTask}
-              className="w-[20rem]"
-            />
-          </div>
-        </main>
-      </div>
+        </div>
+      </main>
       <audio
         style={{ display: "none" }}
         ref={beepStartPlayer}
@@ -100,7 +97,7 @@ const Pomodoro = () => {
         ref={beepFocusPlayer}
         src={beepFocusSound}
       ></audio>
-    </>
+    </div>
   );
 };
 

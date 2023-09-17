@@ -35,7 +35,7 @@ const SignUp = () => {
     signInWithRedirect(auth, provider);
   }
 
-  if (sessionStorage.getItem("signInWithRedirect")) {
+  if (sessionStorage.getItem("signInWithRedirect") === "true") {
     return <div>Redirecting...</div>;
   }
 
@@ -49,7 +49,7 @@ const SignUp = () => {
           onClick={() => {
             googleLogin();
           }}
-          className="my-4"
+          className="mt-6"
         >
           Get Started
         </button>

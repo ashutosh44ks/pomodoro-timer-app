@@ -1,12 +1,11 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebaseConfig";
 import { ReactComponent as Logo } from "../assets/pomo.svg";
 
-const Header = () => {
+const Header = ({ user, setUser }) => {
   const navigate = useNavigate();
-  const [user, setUser] = useState(null);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -35,17 +34,20 @@ const Header = () => {
       });
   };
   return (
-    <header className="flex justify-between items-center px-16 py-4">
+    <header className="flex justify-between items-center">
       <h3>
-        <Logo className="logo" />
-        Pomodoro
+        P<Logo className="logo" />
+        modoro App
       </h3>
       {user && (
-        <div className="flex items-center gap-2">
-          <img src={user.photoURL} alt={user.displayName} />
-          <span>{user.displayName}</span>
-          <button onClick={handleLogout}>Logout</button>
-        </div>
+        <button onClick={handleLogout} className="flex items-center gap-2">
+          <img
+            src={user.photoURL}
+            alt={user.displayName}
+            title={user.displayName}
+          />
+          <span>Logout</span>
+        </button>
       )}
     </header>
   );
