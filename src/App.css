@@ -12,7 +12,7 @@ header .logo {
   width: 2rem;
   fill: white;
   position: relative;
-  left: -0.1rem
+  left: -0.1rem;
 }
 header h3 {
   font-size: 2rem;
@@ -55,6 +55,7 @@ input {
   font-size: 1.1rem;
   font-weight: 500;
   width: 45vw;
+  max-width: 25rem;
   transition: all 0.2s ease-in-out;
   color: #ee5d4f;
 }
@@ -74,6 +75,7 @@ input:hover {
   color: rgb(207, 83, 83);
   border-radius: 0.5rem;
   width: 45vw;
+  max-width: 25rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -81,9 +83,17 @@ input:hover {
   transition: all 0.2s ease-in-out;
 }
 .card .body {
+  padding: 1.5rem;
+}
+.card .body h4.mode {
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.4rem;
+}
+.card .body h1 {
   font-size: 4rem;
   font-weight: 500;
-  padding: 1.5rem;
 }
 .card .footer {
   margin: 0 0.25rem;

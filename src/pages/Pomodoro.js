@@ -7,10 +7,6 @@ const Pomodoro = ({ user, setUser }) => {
   // set initial time to 25 minutes (25 * 60)
   const [time, setTime] = useState(25 * 60);
   const [activeClock, setActiveClock] = useState(false);
-  const minutes = Math.floor(time / 60)
-    .toString()
-    .padStart(2, "0");
-  const seconds = (time - minutes * 60).toString().padStart(2, "0");
 
   const [breakTime, setBreakTime] = useState(false);
   const [count, setCount] = useState(0);
@@ -56,15 +52,22 @@ const Pomodoro = ({ user, setUser }) => {
   };
 
   const [task, setTask] = useState("");
-  const getName = (user) => {
+  const getFirstName = (user) => {
     return user?.displayName.split(" ")[0];
   };
+  function getFormattedTime(time) {
+    const minutes = Math.floor(time / 60)
+      .toString()
+      .padStart(2, "0");
+    const seconds = (time - minutes * 60).toString().padStart(2, "0");
+    return `${minutes}:${seconds}`;
+  }
   return (
     <div className="pomodoro-page">
       <Header user={user} setUser={setUser} />
       <main>
         <div className="mb-8">
-          <h4 className="greet">Hi {getName(user)}</h4>
+          <h4 className="greet">Hi {getFirstName(user)}</h4>
           <input
             type="text"
             id="task"
@@ -74,11 +77,12 @@ const Pomodoro = ({ user, setUser }) => {
           />
         </div>
         <div className="card">
-          <h1 className="body">
-            <span>{minutes}</span>
-            <span>:</span>
-            <span>{seconds}</span>
-          </h1>
+          <div className="body">
+            <h4 className="mode">
+              {breakTime ? "Break Time" : "Focus Time"}
+            </h4>
+            <h1>{getFormattedTime(time)}</h1>
+          </div>
           <div className="footer">
             <button onClick={handleAction}>
               {activeClock ? "Stop" : "Start"}
